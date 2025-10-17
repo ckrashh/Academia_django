@@ -1,0 +1,147 @@
+from estudiantes.models import Estudiante, Perfil
+from profesores.models import Profesor
+from curso.models import Curso, Inscripcion
+
+print("-"*50)
+#Estudiantes
+es1 = Estudiante.objects.create(
+    nombre='Juanin Bolados',
+    email='6ZBt1@example.com'
+)
+es2 = Estudiante.objects.create(
+    nombre='Bolados Juanin',
+    email='6ZBt2@example.com'
+)
+es3 = Estudiante.objects.create(
+    nombre='Juan Carlos Bodoque',
+    email='6ZBt3@example.com'
+)
+
+es4 = Estudiante.objects.create(
+    nombre='Bodoque Juan Carlos',
+    email='6ZBt4@example.com'
+)
+
+es5 = Estudiante.objects.create(
+    nombre='Tulio Tribiño',
+    email='6ZBt5@example.com'
+)
+print("Alumnos: ", Estudiante.objects.all())
+print("-"*50)
+#Profesores
+pro1 = Profesor.objects.create(
+    nombre = 'Calcetin Con Rombo Man',
+    email = 'rombo@example.com'
+)
+
+pro2 = Profesor.objects.create(
+    nombre = 'Rombo Man Con Calcetin',
+    email = 'calcetin@example.com'
+)
+print("Profesores: ", Profesor.objects.all())
+print("-"*50)
+#Cursos
+cur1 = Curso.objects.create(
+    id_profesor = pro1,
+    nombre = 'Python',
+    descripcion = 'Curso de Python'
+)
+
+cur2 = Curso.objects.create(
+    id_profesor = pro2,
+    nombre = 'Javascript',
+    descripcion = 'Curso de Javascript'
+)
+
+cur3 = Curso.objects.create(
+    id_profesor = pro1,
+    nombre = 'Django',
+    descripcion = 'Curso de Django'
+)
+print("Cursos: ", Curso.objects.all())
+print("-"*50)
+#Perfiles
+per1 = Perfil.objects.create(
+    estudiante = es1,
+    biografia = 'Estudiante de Python',
+    redes = 'https://www.facebook.com/juaninbolados'
+)
+
+per2 = Perfil.objects.create(
+    estudiante = es2,
+    biografia = 'Estudiante de Python',
+    redes = 'https://www.facebook.com/boladosjuanin'
+)
+per3 = Perfil.objects.create(
+    estudiante = es3,
+    biografia = 'Estudiante de Python',
+    redes = 'https://www.facebook.com/juancarlosbodoque'
+)
+per4 = Perfil.objects.create(
+    estudiante = es4,
+    biografia = 'Estudiante de Python',
+    redes = 'https://www.facebook.com/juancarlosbodoque'
+)
+per5 = Perfil.objects.create(
+    estudiante = es5,
+    biografia = 'Estudiante de Python',
+    redes = 'https://www.facebook.com/tuliotribino'
+)
+print("Perfiles: ", Perfil.objects.all())
+print("-"*50)
+
+#Inscripciones
+ins1 = Inscripcion.objects.create(
+    id_estudiante = es1,
+    id_curso = cur1,
+)
+ins2 = Inscripcion.objects.create(
+    id_estudiante = es2,
+    id_curso = cur1,
+    estado = 'finalizado',
+    nota_final = 7.0
+)
+ins3 = Inscripcion.objects.create(
+    id_estudiante = es1,
+    id_curso = cur2,
+)
+ins4 = Inscripcion.objects.create(
+    id_estudiante = es3,
+    id_curso = cur2,
+)
+ins5 = Inscripcion.objects.create(
+    id_estudiante = es3,
+    id_curso = cur1,
+)
+ins6 = Inscripcion.objects.create(
+    id_estudiante = es5,
+    id_curso = cur3,
+    estado = 'finalizado',
+    nota_final = 6.0
+)
+ins7 = Inscripcion.objects.create(
+    id_estudiante = es4,
+    id_curso = cur2,
+)
+
+print("Inscripciones: ", Inscripcion.objects.all())
+print("-"*50)
+
+
+#Editar Inscripcion
+editar = Inscripcion.objects.get(id=3)
+print("inscripcion 3 antes de editar: ", editar)
+editar.nota_final = 5.0
+editar.estado = 'finalizado'
+editar.save()
+
+print("inscripcion 3 despues de editar: ", editar)
+print("-"*50)
+
+#borrado en cascada
+per1 = Perfil.objects.get(estudiante=es1)
+print("Perfil estudiante 1 antes de borrar: ", per1)
+per1.delete()
+print("Perfil estudiante 1 despues de borrar: ", Perfil.objects.all())
+
+print("-"*50)
