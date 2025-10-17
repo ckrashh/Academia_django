@@ -45,6 +45,7 @@ source venv/scripts/activate  # Windows: venv\Scripts\activate
 
 # Instalar dependencias
 pip install django pillow
+pip install pymysql
 
 # Aplicar migraciones
 python manage.py makemigrations
@@ -92,5 +93,6 @@ academia/
 ---
 
 **Proyecto Académico del Modulo 7 para el Bootcamp de Desarrollo Full Stack Python** 
+
 
 
