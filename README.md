@@ -36,12 +36,12 @@ Sistema de gestión académica con Django ORM que modela relaciones entre estudi
 
 ```bash
 # Clonar y entrar al proyecto
-git clone <url-del-repositorio>
-cd plataforma-academica
+git clone <(https://github.com/ckrashh/Academia_django)>
+cd academia
 
 # Crear entorno virtual
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/scripts/activate  # Windows: venv\Scripts\activate
 
 # Instalar dependencias
 pip install django pillow
@@ -92,4 +92,5 @@ academia/
 ---
 
 **Proyecto Académico del Modulo 7 para el Bootcamp de Desarrollo Full Stack Python** 
+
 
