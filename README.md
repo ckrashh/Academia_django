@@ -53,10 +53,36 @@ python manage.py migrate
 
 # Cargar datos de prueba
 python manage.py shell < consultas.txt
-
-# Ejecutar servidor
-python manage.py runserver
 ```
+
+## 🔍 Consultas
+👨‍🎓1. Creación de Estudiantes
+
+Se crearon cinco estudiantes con nombre y correo electrónico, para probar su inscripción en cursos y la relación uno a uno con sus perfiles.
+
+👨‍🏫 2. Creación de Profesores
+
+Se registraron dos profesores, quienes luego fueron asignados como responsables de distintos cursos. Esto validó la relación muchos a uno entre curso y profesor.
+
+📘 3. Creación de Cursos
+
+Se generaron tres cursos, cada uno asignado a un profesor específico. Esto permitió verificar la relación ForeignKey con borrado en cascada desde el profesor.
+
+🧑‍💻 4. Creación de Perfiles
+
+A cada estudiante se le asignó un perfil único con información adicional como biografía y enlace a redes sociales, validando la relación uno a uno (OneToOneField).
+
+📚 5. Creación de Inscripciones
+
+Se inscribieron estudiantes en distintos cursos. Se usó una tabla intermedia para almacenar la fecha de inscripción (automática), el estado de la inscripción (activo o finalizado) y la nota final (opcional), cumpliendo así con una relación muchos a muchos con datos adicionales.
+
+✏️ 6. Edición de Inscripción
+
+Se accedió a una inscripción específica (id = 3) para modificar su estado y añadir una nota final. Esto validó que los campos personalizados de la tabla intermedia son editables.
+
+❌ 7. Borrado en Cascada
+
+Se eliminó un perfil de estudiante y se comprobó que se elimina correctamente sin afectar otras entidades. También se probó la eliminación de un estudiante y cómo esta acción borra automáticamente su perfil y sus inscripciones asociadas gracias al uso de on_delete=models.CASCADE.
 
 ## ✨ Funcionalidades
 
@@ -93,6 +119,7 @@ academia/
 ---
 
 **Proyecto Académico del Modulo 7 para el Bootcamp de Desarrollo Full Stack Python** 
+
 
 
 
