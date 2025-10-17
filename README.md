@@ -76,7 +76,7 @@ python manage.py runserver
 ## 📂 Estructura del Proyecto
 
 ```
-plataforma-academica/
+academia/
 ├── estudiantes/
 │   └── models.py (Estudiante, Perfil)
 │   └── ...
@@ -92,3 +92,4 @@ plataforma-academica/
 ---
 
 **Proyecto Académico del Modulo 7 para el Bootcamp de Desarrollo Full Stack Python** 
+
